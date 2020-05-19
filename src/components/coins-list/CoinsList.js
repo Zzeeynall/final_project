@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { getCoinsByType, searchChange } from "../../actions";
+import { getCoinsByType, searchChange,clearListOfcoin } from "../../actions";
 import { Header, Caption, Nav } from './Style';
 import { Link } from 'react-router-dom';
 
 import Coin from '../coin';
 import Search from '../search-panel';
+import Spinner from '../spinner';
+
 
 class CoinsList extends Component {
   
@@ -17,8 +19,13 @@ class CoinsList extends Component {
       changeSearchState();
     }
   }
+
+  componentWillUnmount(){
+    this.props.clearListOfcoin();
+  }
   
   render(){
+    console.log(this.props.loading)
     return(
       <div>
         <Header>
@@ -27,7 +34,7 @@ class CoinsList extends Component {
         </Header>
         <Nav><Link to='/'>Homepage</Link> — List of the coins</Nav>
         <Search/>
-        {this.props.coins.length ?  <Coin/> : <h1>Not found</h1>}
+        {this.props.loading ? <Spinner/> : <Coin/>}
       </div>
     )
   }
@@ -36,6 +43,7 @@ class CoinsList extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    loading: state.loading,
     searchState: state.search,
     type: ownProps.match.params.type,
     coins: state.coinsByType
@@ -44,7 +52,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = {
   getCoinsByType: getCoinsByType,
-  changeSearchState: searchChange
+  changeSearchState: searchChange,
+  clearListOfcoin: clearListOfcoin
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoinsList);

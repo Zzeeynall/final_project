@@ -5,11 +5,17 @@ function filter() {
     }
 };
 
-function register() {
+function clearListOfcoin() {
   return {
-      type: 'REGISTER'
+    type: 'CLEAR_LIST'
   }
 };
+
+function spinner() {
+  return {
+    type: "LOADING",
+  };
+}
 
 function searchChange() {
   return {
@@ -46,10 +52,12 @@ function getCoins() {
 
 function getCoinsByType(type) {
     return function(dispatch) {
+      dispatch(spinner());
       fetch("/coins/" + type)
         .then((res) => res.json())
         .then((coins) => {
           dispatch({ type: 'GET_COINS_BY_TYPE', payload: coins });
+          dispatch(spinner());
         });
     };
 };
@@ -151,7 +159,7 @@ function login(user) {
 
 export {
     filter,
-    register,
+    clearListOfcoin,
     getCoins,
     getCoinsByType,
     getCoinById,
@@ -162,5 +170,6 @@ export {
     searchChange,
     login,
     editForm,
-    getCoinForEdit
+    getCoinForEdit,
+    spinner
 };

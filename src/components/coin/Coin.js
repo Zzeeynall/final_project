@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 
 
+
 const Coin = (props) => {
   return(
     <MainWrapper>

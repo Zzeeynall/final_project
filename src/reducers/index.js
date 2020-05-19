@@ -3,6 +3,7 @@ const initialState = {
     coins: [],
     coinsByType: [],
     coinById: [],
+    loading: false,
     filter: false,
     login: false,
     typeId: null,
@@ -64,20 +65,25 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 filter: !state.filter
             };
+        case 'LOADING':
+        return {
+            ...state,
+            loading: !state.loading
+        };
         case 'SEARCH':
             return {
                 ...state,
                 search: !state.search
             };
-        case 'REGISTER':
-            return {
-                ...state,
-                register: true
-            };
         case 'LOGIN':
             return {
                 ...state,
                 login: true
+            };
+        case 'CLEAR_LIST':
+            return {
+                ...state,
+                coinsByType: []
             };
         case 'EDIT_FORM':
             return {

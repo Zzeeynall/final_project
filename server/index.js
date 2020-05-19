@@ -133,7 +133,6 @@ app.post('/search', (req, res) => {
     console.log(search)
      pool.query(sql, (err, data) => {
          if(!err){
-             console.log(data)
              res.json(data);
          }else{
              res.sendStatus(500);
