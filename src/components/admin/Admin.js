@@ -1,27 +1,46 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getCoins, deleteCoin } from "../../actions";
-import { MainWrapper, Coins, Caption, Wrapper, Picture, AddWrapper, Plus, EditButton, DeleteButton, Name, Desc } from './Style';
+import { MainWrapper, Coins, Caption, Wrapper, Picture, AddWrapper, Plus, EditButton, DeleteButton, Name, Desc, 
+    Label, Input, Button } from './Style';
 import { Link, Redirect } from 'react-router-dom';
 
 import Search from '../search-panel';
 
 class Admin extends Component{
 
+    state = {
+        search: ''
+    }
+
     componentDidMount(){
         this.props.getCoins();
     }
 
+    search = (items, text) => {
+        if(!text.length){
+            return items;
+        }
+
+        return items.filter((item) => {
+            return item.name.toLowerCase().indexOf(text.toLowerCase()) > -1;
+        })
+   }
+
     render(){
+        const searched = this.search(this.props.coins, this.state.search);
         if(!this.props.login){
             return <Redirect to='/' />
         }
         return(
             <div>
                 <Caption>Admin Panel</Caption>
-                <Search/>
+                <div>
+                    <Label>Input field</Label>
+                </div>
+                <Input onChange={(e) => this.setState({search: e.target.value})} value={this.state.search} placeholder=" type to search"/>
                 <Coins>
-                    {this.props.coins.map(coin =>{
+                    {searched.map(coin =>{
                         return (
                             <MainWrapper key={coin.id}>
                                 <Wrapper>

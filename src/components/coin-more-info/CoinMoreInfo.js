@@ -77,6 +77,7 @@ class CoinMoreInfo extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    loading: state.loading,
     coin: state.coinById,
     id: ownProps.match.params.id
   };

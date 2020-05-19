@@ -64,10 +64,12 @@ function getCoinsByType(type) {
 
 function getCoinById(id) {
     return function(dispatch) {
+      dispatch(spinner());
       fetch("/coin/" + id)
         .then((res) => res.json())
         .then((coin) => {
           dispatch({ type: 'GET_COIN_BY_ID', payload: coin });
+          dispatch(spinner());
         });
     };
 };

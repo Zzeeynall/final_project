@@ -25,6 +25,7 @@ class Search extends Component {
     search = () => {
         this.props.searchCoin(this.state);
         this.props.searchChange();
+        this.props.showFilter();
     }
 
     render(){

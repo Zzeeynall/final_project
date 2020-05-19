@@ -89,5 +89,29 @@ const DeleteButton = styled.button`
     
 `
 
-export { MainWrapper, Coins, Caption, Wrapper, Picture, AddWrapper, Plus, Name, Desc, EditButton, DeleteButton };
+const Label = styled.label`
+    font-weight: 500;
+    font-size: 14px;
+`
+const Input = styled.input`
+    width: 375px;
+    height: 44px;
+    margin-right: 30px;
+    font-size: 20px;
+    border: 1px solid black;
+`
+
+const Button = styled.button`
+    width: 120px;
+    height: 50px;
+    border: none;
+    background: #833AE0;
+    font-size: 14px;
+    color: #FFFFFF;
+    cursor: pointer;
+    
+`
+
+export { MainWrapper, Coins, Caption, Wrapper, Picture, AddWrapper, Plus, Name, Desc, EditButton, DeleteButton, 
+    Label, Input, Button };
 
