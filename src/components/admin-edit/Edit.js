@@ -11,9 +11,9 @@ class Edit extends Component {
         
       }
 
-      onChangeHandle = (e) => {
-          const coin = {[e.target.name]: e.target.value};
-          this.props.editForm(coin);
+    onChangeHandle = (e) => {
+        const coin = {[e.target.name]: e.target.value};
+        this.props.editForm(coin);
       }
 
     updateCoin = (e) => {

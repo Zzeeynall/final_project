@@ -17,4 +17,11 @@
    text-align: center;
    vertical-align: center;
    align-items: flex-end;
+   list-style: none;
+   display: inline-block;
+   justify-content: center;
+   text-decoration: none;
+   padding: 10px;
+   border: 1px solid #833AE0;
+   margin: 5px 0;
 }

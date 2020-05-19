@@ -43,5 +43,20 @@ const Desc = styled.p`
     font-size: 12px;
 `
 
-export { MainWrapper, Wrapper, Picture, TypeName, ShowAll, Name, Desc };
+const Pagination = styled.ul`
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    li{
+        padding: 10px;
+        background-color: #833AE0;
+        margin: 10px;
+    }
+    a{
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+`
+
+export { MainWrapper, Wrapper, Picture, TypeName, ShowAll, Name, Desc, Pagination };
 
