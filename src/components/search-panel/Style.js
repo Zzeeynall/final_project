@@ -14,12 +14,17 @@ const Input = styled.input`
 
 const Button = styled.button`
     width: 120px;
-    height: 50px;
+    height: 48px;
     border: none;
     background: #833AE0;
     font-size: 14px;
     color: #FFFFFF;
     cursor: pointer;
+    
+`
+
+const Some = styled.div`
+    display: flex;
     
 `
 const AdvancedFilter = styled.div`
@@ -54,4 +59,4 @@ const Wrapper = styled.div`
     }
 `
 
-export { Label, Input, Button, AdvancedFilter,  Select, Wrapper };
+export { Label, Input, Button, AdvancedFilter,  Select, Wrapper, Some };

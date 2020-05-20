@@ -51,10 +51,8 @@ const Pagination = styled.ul`
         padding: 10px;
         background-color: #833AE0;
         margin: 10px;
-    }
-    a{
-        text-decoration: none;
         color: #FFFFFF;
+        cursor: pointer;
     }
 `
 

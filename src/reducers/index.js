@@ -22,10 +22,6 @@ const initialState = {
         quality: ' ',
         weight: ' ',
         metal: ' '
-    },
-    pagination: {
-        currentPage: 1,
-        postsPerPage: 10
     }
   };
 

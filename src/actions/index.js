@@ -120,6 +120,7 @@ function updateCoin(id, coin) {
 
 function searchCoin(text) {
   return function(dispatch) {
+    dispatch(spinner());
     fetch("/search", {
       method: 'POST',
       body: JSON.stringify(text),
@@ -130,6 +131,7 @@ function searchCoin(text) {
       .then((res) => res.json())
       .then((coins) => {
         dispatch({ type: 'SEARCH_COIN', payload: coins});
+        dispatch(spinner());
       });
   };
 };

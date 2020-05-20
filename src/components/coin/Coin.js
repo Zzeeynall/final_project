@@ -3,7 +3,7 @@ import { MainWrapper, Wrapper, Picture, Name, Desc, Pagination } from './Style';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 
-
+import Spinner from '../spinner';
 
 const Coin = (props) => {
 
@@ -22,6 +22,12 @@ const Coin = (props) => {
     }
 
     const paginate = pageNumber => setCurrentPage(pageNumber);
+
+    
+
+    if(!props.coins.length){
+      return <h1>Not found</h1>
+    }
 
   return(
     <div>
@@ -42,11 +48,7 @@ const Coin = (props) => {
       <nav>
       <Pagination className='pagination'>
         {pageNumbers.map(number => (
-          <li key={number}>
-            <a onClick={() => paginate(number)} href='#'>
-              {number}
-            </a>
-          </li>
+          <li key={number} onClick={() => paginate(number)}>{number}</li>
         ))}
       </Pagination>
     </nav>

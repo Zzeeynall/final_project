@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { getCoinsByType, searchChange,clearListOfcoin } from "../../actions";
+import { getCoinsByType, searchChange, clearListOfcoin } from "../../actions";
 import { Header, Caption, Nav } from './Style';
 import { Link } from 'react-router-dom';
 
@@ -25,7 +25,6 @@ class CoinsList extends Component {
   }
   
   render(){
-    console.log(this.props.loading)
     return(
       <div>
         <Header>

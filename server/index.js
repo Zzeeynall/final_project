@@ -126,10 +126,15 @@ function loadTasksFromJson() {
 
 app.post('/search', (req, res) => {
     console.log(req.body)
-    const { search, country, metal, quality } = req.body;
+    let { search, country, metal, quality, fromPrice, toPrice, fromYear, toYear } = req.body;
+    fromPrice = fromPrice ? fromPrice : 0;
+    toPrice = toPrice ? toPrice : 1000;
+    fromYear = fromYear ? fromYear : 0;
+    toYear = toYear ? toYear : 2020;
      const sql = `SELECT * FROM coins WHERE name LIKE '%${search}%' AND short_desc LIKE '%${search}%' 
      AND long_desc LIKE '%${search}%' AND country LIKE '%${country}%' AND metal LIKE '%${metal}%' 
-     AND quality LIKE '%${quality}%'`;
+     AND quality LIKE '%${quality}%' AND price > ${+fromPrice} AND price < ${+toPrice} 
+     AND year_issue > ${+fromYear} AND year_issue < ${+toYear}`;
     console.log(search)
      pool.query(sql, (err, data) => {
          if(!err){
