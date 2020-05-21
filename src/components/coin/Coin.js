@@ -8,29 +8,32 @@ import Spinner from '../spinner';
 const Coin = (props) => {
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(4);
+  const [postsPerPage, setpostsPerPage] = useState(4);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = props.coins.slice(indexOfFirstPost, indexOfLastPost);
 
+  const pageNumbers = [];
   
-    const pageNumbers = [];
-  
-    for (let i = 1; i <= Math.ceil(props.coins.length / postsPerPage); i++) {
-      pageNumbers.push(i);
-    }
+  for (let i = 1; i <= Math.ceil(props.coins.length / postsPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
-    const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
-    
-
-    if(!props.coins.length){
-      return <h1>Not found</h1>
-    }
+  if(!props.coins.length){
+    return <h1>Not found</h1>
+  }
 
   return(
     <div>
+      <select onChange={(e) => setpostsPerPage(+e.target.value)}>
+      <option value='4'>4</option>
+        <option value='6'>6</option>
+        <option value='10'>10</option>
+        <option value={props.coins.length}>All</option>
+      </select>
       <MainWrapper>
         {currentPosts.map(coin =>{
             return (

@@ -18,9 +18,9 @@ function spinner() {
 }
 
 function searchChange() {
-  return {
-    type: 'SEARCH'
-  }
+  return function(dispatch) {
+        dispatch({ type: 'SEARCH' });
+  };
 };
 
 function editForm(coin) {

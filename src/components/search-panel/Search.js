@@ -44,7 +44,7 @@ class Search extends Component {
                 </div>
                 <Some>
                 <Input onChange={(e) => this.setState({search: e.target.value})} value={search}/>
-                <Link to='/search'><Button onClick={this.search}>Search</Button></Link>
+                <Link to='/search' onClick={this.search}><Button>Search</Button></Link>
                 </Some>
                 <div>
                 <AdvancedFilter onClick={showFilter}>Advanced filter <img src={filter ? up : down} alt=""/></AdvancedFilter>
