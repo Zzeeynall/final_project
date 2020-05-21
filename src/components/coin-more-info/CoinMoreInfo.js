@@ -12,7 +12,6 @@ class CoinMoreInfo extends Component {
     this.props.getCoinById(this.props.id);
   }
   
-
   render(){
     const coin = this.props.coin.length ? this.props.coin[0] : [];
     const { name, obverse_img, reverse_img, face_value, short_desc, long_desc, 

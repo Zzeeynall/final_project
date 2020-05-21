@@ -25,12 +25,21 @@ const Wrapper = styled.div`
     width: 375px;
     margin: 40px 0 25px 0;
     margin-right: 30px;
+    position: relative;
 `
-
+const View = styled.div`
+    position: absolute;
+    top: -15px;
+    left: 95px;
+    img{
+        width: 20px; 
+    }
+`
 
 const Picture = styled.img`
     width: 120px;
     margin-right: 30px;
+    border-radius: 50%;
 `
 
 const AddWrapper = styled.div`
@@ -113,5 +122,5 @@ const Button = styled.button`
 `
 
 export { MainWrapper, Coins, Caption, Wrapper, Picture, AddWrapper, Plus, Name, Desc, EditButton, DeleteButton, 
-    Label, Input, Button };
+    Label, Input, View };
 

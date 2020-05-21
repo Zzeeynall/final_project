@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getCoins, deleteCoin } from "../../actions";
 import { MainWrapper, Coins, Caption, Wrapper, Picture, AddWrapper, Plus, EditButton, DeleteButton, Name, Desc, 
-    Label, Input, Button } from './Style';
+    Label, Input, View } from './Style';
 import { Link, Redirect } from 'react-router-dom';
-
-import Search from '../search-panel';
+import eyes from '../../icons/eyes.png';
 
 class Admin extends Component{
 
@@ -44,6 +43,7 @@ class Admin extends Component{
                         return (
                             <MainWrapper key={coin.id}>
                                 <Wrapper>
+                                    {coin.view != 0 ? <View><img src={eyes}/> {coin.view}</View> : <></>}
                                     <Picture src={coin.obverse_img}/>
                                     <div>
                                         <Name>{coin.name}</Name>

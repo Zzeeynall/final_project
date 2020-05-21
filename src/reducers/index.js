@@ -66,10 +66,10 @@ const reducer = (state = initialState, action) => {
                 filter: !state.filter
             };
         case 'LOADING':
-        return {
-            ...state,
-            loading: !state.loading
-        };
+            return {
+                ...state,
+                loading: !state.loading
+            };
         case 'SEARCH':
             return {
                 ...state,

@@ -30,13 +30,17 @@ app.get('/coins', (req, res) => {
 
 
 app.get('/coin/:id', (req, res) => {
-    pool.query('SELECT * FROM coins WHERE id =' + req.params.id, (err, data) => {
-        if(!err){
-            res.json(data);
-        }else{
-            res.sendStatus(500);
-        }
-    })
+    const sql = `SELECT * FROM coins WHERE id = ?`;
+    const sqlUpdate = `UPDATE coins SET view = view + 1 WHERE id = ?`;
+    pool.query(sql, [req.params.id], (err, data) => {
+        pool.query(sqlUpdate, [req.params.id], (err) => {
+            if(!err){
+                res.json(data);
+            }else{
+                res.sendStatus(500);
+            }
+        })
+    });
 })
 
 app.delete('/coin/:id', (req, res) => {
@@ -65,11 +69,11 @@ app.post('/addCoin', (req, res) => {
     reverse, type } = req.body;
     const sql = `INSERT INTO coins
     (name, face_value, year_issue, price, country, metal, quality, weight, short_desc, long_desc, 
-        obverse_img, reverse_img, typeId)
+        obverse_img, reverse_img, view, typeId)
     VALUES
     ('${coinName}', '${faceValue}', ${+year}, ${+price}, '${country}', 
     '${metal}', '${quality}',
-    ${+weight}, '${shortDesc}', '${longDesc}', '${observe}', '${reverse}', ${+type})`;
+    ${+weight}, '${shortDesc}', '${longDesc}', '${observe}', '${reverse}', 0,  ${+type})`;
     pool.query(sql, (err, data) => {
         if(!err){
             res.json(data);
@@ -99,11 +103,11 @@ app.post('/updateCoin/:id', (req, res) => {
 function addCoin(coin) {
     const sql = `INSERT INTO coins
     (name, face_value, year_issue, price, country, metal, quality, weight, short_desc, long_desc, 
-        obverse_img, reverse_img, typeId)
+        obverse_img, reverse_img, view, typeId)
     VALUES
     ('${coin.header}', '${coin.denomination}', ${+coin.year}, ${+coin.price}, '${coin.country}', 
     '${coin.composition}', '${coin.quality}',
-    ${+coin.weight}, '${coin.shortDescription}', '${coin.description}', '${coin.avers}', '${coin.revers}', ${coin.group})`;
+    ${+coin.weight}, '${coin.shortDescription}', '${coin.description}', '${coin.avers}', '${coin.revers}', 0,  ${coin.group})`;
     console.log(sql);
     pool.query(sql, (err, data) => {
         if (!err) {
@@ -116,7 +120,7 @@ function addCoin(coin) {
 
 
 function loadTasksFromJson() {
-    const rawdata = fs.readFileSync('coins.json');
+    const rawdata = fs.readFileSync('./server/coins.json');
     let coins = JSON.parse(rawdata);
     coins.forEach(addCoin);
 }

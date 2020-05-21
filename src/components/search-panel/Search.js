@@ -19,7 +19,6 @@ class Search extends Component {
         toPrice: '',
         fromYear: '',
         toYear: ''
-
     }
 
     componentDidMount(){
