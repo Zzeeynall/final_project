@@ -5,6 +5,12 @@ function filter() {
     }
 };
 
+function modal() {
+  return {
+    type: 'MODAL'
+  }
+};
+
 function clearListOfcoin() {
   return {
     type: 'CLEAR_LIST'
@@ -32,7 +38,7 @@ function editForm(coin) {
 
 function getCoinForEdit(id) {
   return function(dispatch) {
-    fetch("/coin/" + id)
+    fetch("/coinEdit/" + id)
       .then((res) => res.json())
       .then((coins) => {
         dispatch({ type: 'GET_COIN_FOR_EDIT', payload: coins[0] });
@@ -163,6 +169,7 @@ function login(user) {
 
 export {
     filter,
+    modal,
     clearListOfcoin,
     getCoins,
     getCoinsByType,

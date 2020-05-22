@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { getCoins, deleteCoin } from "../../actions";
+import { getCoins, deleteCoin, modal } from "../../actions";
 import { MainWrapper, Coins, Caption, Wrapper, Picture, AddWrapper, Plus, EditButton, DeleteButton, Name, Desc, 
-    Label, Input, View } from './Style';
+    Label, Input, View, Modal, DeleteModal, CancelModal } from './Style';
 import { Link, Redirect } from 'react-router-dom';
 import eyes from '../../icons/eyes.png';
+//import Modal from '../modal-window'
 
 class Admin extends Component{
 
@@ -26,11 +27,16 @@ class Admin extends Component{
         })
    }
 
+   delete = (id) => {
+        this.props.deleteCoin(id);
+        this.props.showModal()
+   }
+
     render(){
         const searched = this.search(this.props.coins, this.state.search);
-        if(!this.props.login){
-            return <Redirect to='/' />
-        }
+        // if(!this.props.login){
+        //     return <Redirect to='/' />
+        // }
         return(
             <div>
                 <Caption>Admin Panel</Caption>
@@ -52,8 +58,13 @@ class Admin extends Component{
                                 </Wrapper>
                                 <div>
                                     <Link to={`/edit/${coin.id}`}><EditButton>Edit</EditButton></Link>
-                                    <DeleteButton onClick={() => this.props.deleteCoin(coin.id)}>Delete</DeleteButton>
+                                    <DeleteButton onClick={() => this.props.showModal()}>Delete</DeleteButton>
                                 </div>
+                                {this.props.modal && <Modal>
+                                    <p>Are you sure?</p>
+                                    <DeleteModal onClick={() => this.delete(coin.id)}>Delete</DeleteModal>
+                                    <CancelModal onClick={() => this.props.showModal()}>Cancel</CancelModal>
+                                </Modal>}
                             </MainWrapper>)
                     })}
                 </Coins>
@@ -71,13 +82,15 @@ class Admin extends Component{
 const mapStateToProps = (state) => {
     return {
         coins: state.coins,
-        login: state.login
+        login: state.login,
+        modal: state.modal,
     };
   };
   
   const mapDispatchToProps = {
     getCoins: getCoins,
-    deleteCoin: deleteCoin
+    deleteCoin: deleteCoin,
+    showModal: modal
   };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);

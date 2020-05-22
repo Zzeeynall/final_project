@@ -118,9 +118,39 @@ const Button = styled.button`
     font-size: 14px;
     color: #FFFFFF;
     cursor: pointer;
-    
+`
+
+const Modal = styled.div`
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #833AE0;
+    padding: 20px;
+    background: #E1E1E1;
+`
+
+const DeleteModal = styled.button`
+    width: 120px;
+    height: 50px;
+    border: none;
+    background: tomato;
+    font-size: 14px;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-right: 10px;
+`
+
+const CancelModal = styled.button`
+    width: 120px;
+    height: 50px;
+    border: none;
+    background: #833AE0;
+    font-size: 14px;
+    color: #FFFFFF;
+    cursor: pointer;
 `
 
 export { MainWrapper, Coins, Caption, Wrapper, Picture, AddWrapper, Plus, Name, Desc, EditButton, DeleteButton, 
-    Label, Input, View };
+    Label, Input, View, Modal, DeleteModal, CancelModal };
 

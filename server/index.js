@@ -43,6 +43,18 @@ app.get('/coin/:id', (req, res) => {
     });
 })
 
+
+app.get('/coinEdit/:id', (req, res) => {
+    const sql = `SELECT * FROM coins WHERE id = ?`;
+    pool.query(sql, [req.params.id], (err, data) => {
+            if(!err){
+                res.json(data);
+            }else{
+                res.sendStatus(500);
+            }
+    });
+})
+
 app.delete('/coin/:id', (req, res) => {
     pool.query('DELETE FROM coins WHERE id =' + req.params.id, (err, data) => {
         if(!err){

@@ -8,6 +8,7 @@ const initialState = {
     login: false,
     typeId: null,
     search: true,
+    modal: false,
     coinEdit: {
         name: ' ',
         face_value: ' ',
@@ -69,6 +70,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: !state.loading
+            };
+        case 'MODAL':
+            return {
+                ...state,
+                modal: !state.modal
             };
         case 'SEARCH':
             return {
