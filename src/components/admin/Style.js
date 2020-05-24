@@ -31,8 +31,8 @@ const View = styled.div`
     position: absolute;
     top: -15px;
     left: 95px;
-    img{
-        width: 20px; 
+    span{
+        margin-left: 4px;
     }
 `
 

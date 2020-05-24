@@ -51,6 +51,7 @@ function getCoins() {
     fetch("/coins")
       .then((res) => res.json())
       .then((coins) => {
+        console.log(coins)
         dispatch({ type: 'GET_COINS', payload: coins });
       });
   };
@@ -103,6 +104,7 @@ function addCoin(coin) {
     })
       .then((res) => res.json())
       .then((post) => {
+        console.log(post)
         dispatch({ type: 'ADD_COIN'});
       });
   };

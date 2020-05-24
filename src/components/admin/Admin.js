@@ -10,7 +10,8 @@ import eyes from '../../icons/eyes.png';
 class Admin extends Component{
 
     state = {
-        search: ''
+        search: '',
+        id: ''
     }
 
     componentDidMount(){
@@ -29,7 +30,8 @@ class Admin extends Component{
 
    delete = (id) => {
         this.props.deleteCoin(id);
-        this.props.showModal()
+        this.props.showModal();
+        console.log(id);
    }
 
     render(){
@@ -49,7 +51,7 @@ class Admin extends Component{
                         return (
                             <MainWrapper key={coin.id}>
                                 <Wrapper>
-                                    {coin.view != 0 ? <View><img src={eyes}/> {coin.view}</View> : <></>}
+                                    {coin.view != 0 ? <View><i className="far fa-eye"></i><span>{coin.view}</span></View> : <></>}
                                     <Picture src={coin.obverse_img}/>
                                     <div>
                                         <Name>{coin.name}</Name>
@@ -58,11 +60,11 @@ class Admin extends Component{
                                 </Wrapper>
                                 <div>
                                     <Link to={`/edit/${coin.id}`}><EditButton>Edit</EditButton></Link>
-                                    <DeleteButton onClick={() => this.props.showModal()}>Delete</DeleteButton>
+                                    <DeleteButton onClick={() => {this.setState({id: coin.id}); this.props.showModal()}}>Delete</DeleteButton>
                                 </div>
                                 {this.props.modal && <Modal>
                                     <p>Are you sure?</p>
-                                    <DeleteModal onClick={() => this.delete(coin.id)}>Delete</DeleteModal>
+                                    <DeleteModal onClick={() => this.delete(this.state.id)}>Delete</DeleteModal>
                                     <CancelModal onClick={() => this.props.showModal()}>Cancel</CancelModal>
                                 </Modal>}
                             </MainWrapper>)
