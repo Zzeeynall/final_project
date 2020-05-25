@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 import { updateCoin, getCoinById, editForm, getCoinForEdit } from "../../actions";
-import { Caption, Label, Input, WrapperFirstLine, Area, WrapperLastLine, SaveButton, CancelButton } from '../admin-add/Style';
+import { Caption, Label, Input, WrapperFirstLine, Area, WrapperLastLine,
+     SaveButton, CancelButton, WrapperForButtons } from '../admin-edit/Style';
 
 class Edit extends Component {
     
@@ -85,13 +86,13 @@ class Edit extends Component {
                             <Area onChange={(e) => this.setState({long_desc: e.target.value})} id="longDesc" 
                             name="long_desc" type="text" value={coin.long_desc} required ></Area>
                         </div>
-                        <div>
+                        <WrapperForButtons>
                             <div>
                                 <Label htmlFor="typeId">Type</Label>
                             </div>
                             <Input onChange={(e) => this.setState({typeId: e.target.value})} id="type" 
                             name="typeId" type="text" value={coin.typeId} required/>
-                        </div>
+                        </WrapperForButtons>
                     </WrapperFirstLine>
                     <WrapperFirstLine>
                         <div>

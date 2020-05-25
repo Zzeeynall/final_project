@@ -17,11 +17,13 @@ const Input = styled.input`
 `
 const WrapperFirstLine = styled.div`
     display: flex;
+    width: 100%;
 `
 
 const WrapperLastLine = styled.div`
     display: flex;
     align-items: flex-end;
+    width: 100%;
 `
 
 const Area = styled.textarea`
@@ -31,6 +33,10 @@ const Area = styled.textarea`
     margin: 0 30px 20px 0;
     border: 1px solid black;
     resize: none;
+`
+
+const WrapperForButtons = styled.div`
+    text-align: center;
 `
 
 const SaveButton = styled.button`
@@ -55,4 +61,4 @@ const CancelButton = styled.button`
     
 `
 
-export { Caption, Label, Input, WrapperFirstLine, Area, WrapperLastLine, SaveButton, CancelButton };
+export { Caption, Label, Input, WrapperFirstLine, Area, WrapperLastLine, SaveButton, CancelButton, WrapperForButtons };

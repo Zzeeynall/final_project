@@ -36,9 +36,9 @@ class Admin extends Component{
 
     render(){
         const searched = this.search(this.props.coins, this.state.search);
-        // if(!this.props.login){
-        //     return <Redirect to='/' />
-        // }
+        if(!this.props.login){
+            return <Redirect to='/' />
+        }
         return(
             <div>
                 <Caption>Admin Panel</Caption>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 const MainWrapper = styled.div`
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 `
 const Images = styled.div`
     margin-right: 30px;
@@ -12,7 +13,7 @@ const Images = styled.div`
 `
 
 const Info = styled.div`
-    width: 450px;
+    max-width: 450px;
     background: rgba(196, 196, 196, 0.5);
     padding: 20px 43px;
     p{
@@ -23,7 +24,7 @@ const Info = styled.div`
         color: #000000;
     }
     table{
-        width: 449px;
+        max-width: 449px;
         margin-top: 70px;
         border-collapse: collapse;
         font-size: 11px;

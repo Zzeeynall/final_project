@@ -17,6 +17,9 @@ const Wrapper = styled.div`
     & > a:first-child{
         margin-right: 30px;
     }
+    @media(max-width: 960px){
+        width: 100%;
+    }
 `
 
 const TypeName = styled.h2`
