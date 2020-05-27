@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { MainWrapper, Wrapper, Picture, Name, Desc, Pagination } from './Style';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-
-import Spinner from '../spinner';
 
 const Coin = (props) => {
 

@@ -24,7 +24,7 @@ const Info = styled.div`
         color: #000000;
     }
     table{
-        max-width: 449px;
+        width: 100%;
         margin-top: 70px;
         border-collapse: collapse;
         font-size: 11px;

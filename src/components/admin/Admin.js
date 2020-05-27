@@ -4,8 +4,6 @@ import { getCoins, deleteCoin, modal } from "../../actions";
 import { MainWrapper, Coins, Caption, Wrapper, Picture, AddWrapper, Plus, EditButton, DeleteButton, Name, Desc, 
     Label, Input, View, Modal, DeleteModal, CancelModal } from './Style';
 import { Link, Redirect } from 'react-router-dom';
-import eyes from '../../icons/eyes.png';
-//import Modal from '../modal-window'
 
 class Admin extends Component{
 
