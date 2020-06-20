@@ -57,12 +57,12 @@ class Edit extends Component {
                             <div>
                                 <Label htmlFor="obverse_img">Link to obverse image</Label>
                             </div>
-                            <Input onChange={(e) => this.setState({obverse_img: e.target.value})} id="observe" 
+                            <Input onChange={this.onChangeHandle} id="observe" 
                             name="obverse_img" type="text" value={coin.obverse_img} required/>
                             <div>
                                 <Label htmlFor="reverse_img">Link to reverse image</Label>
                             </div>
-                            <Input onChange={(e) => this.setState({reverse_img: e.target.value})} id="reverse" 
+                            <Input onChange={this.onChangeHandle} id="reverse" 
                             name="reverse_img" type="text" value={coin.reverse_img} required/>
                         </div>
                     </WrapperFirstLine>
@@ -71,26 +71,26 @@ class Edit extends Component {
                             <div>
                                 <Label htmlFor="year_issue">Year of issue</Label>
                             </div>
-                            <Input onChange={(e) => this.setState({year_issue: e.target.value})} id="year" 
+                            <Input onChange={this.onChangeHandle} id="year" 
                             name="year_issue" type="text" value={coin.year_issue} required/>
                             <div>
                                 <Label htmlFor="price">Price</Label>
                             </div>
-                            <Input onChange={(e) => this.setState({price: e.target.value})} id="price" 
+                            <Input onChange={this.onChangeHandle} id="price" 
                             name="price" type="text" value={coin.price} required/>
                         </div>
                         <div>
                             <div>
                                 <Label htmlFor="long_desc">Long description</Label>
                             </div>
-                            <Area onChange={(e) => this.setState({long_desc: e.target.value})} id="longDesc" 
+                            <Area onChange={this.onChangeHandle} id="longDesc" 
                             name="long_desc" type="text" value={coin.long_desc} required ></Area>
                         </div>
                         <WrapperForButtons>
                             <div>
                                 <Label htmlFor="typeId">Type</Label>
                             </div>
-                            <Input onChange={(e) => this.setState({typeId: e.target.value})} id="type" 
+                            <Input onChange={this.onChangeHandle} id="type" 
                             name="typeId" type="text" value={coin.typeId} required/>
                         </WrapperForButtons>
                     </WrapperFirstLine>
@@ -99,12 +99,12 @@ class Edit extends Component {
                             <div>
                                 <Label htmlFor="country">Country</Label>
                             </div>
-                            <Input onChange={(e) => this.setState({country: e.target.value})} id="country" 
+                            <Input onChange={this.onChangeHandle} id="country" 
                             name="country" type="text" value={coin.country} required/>
                             <div>
                                 <Label htmlFor="metal">Metal</Label>
                             </div>
-                            <Input onChange={(e) => this.setState({metal: e.target.value})} id="metal" 
+                            <Input onChange={this.onChangeHandle} id="metal" 
                             name="metal" type="text" value={coin.metal} required/>
                         </div>
                         <WrapperLastLine>
@@ -112,12 +112,12 @@ class Edit extends Component {
                                 <div>
                                     <Label htmlFor="quality">Quality of the coin</Label>
                                 </div>
-                                <Input onChange={(e) => this.setState({quality: e.target.value})} id="quality" 
+                                <Input onChange={this.onChangeHandle} id="quality" 
                                 name="quality" type="text" value={coin.quality} required/>
                                 <div>
                                     <Label htmlFor="weight">Weight</Label>
                                 </div>
-                                <Input onChange={(e) => this.setState({weight: e.target.value})} id="weight" 
+                                <Input onChange={this.onChangeHandle} id="weight" 
                                 name="weight" type="text" value={coin.weight} required/>
                             </div>                            
                             <div>
